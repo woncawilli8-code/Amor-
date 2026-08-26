@@ -1,1 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti ❤️</title>
 
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #120008, #3b0018, #16000c);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    padding: 35px 25px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(255,0,80,0.25);
+}
+
+.corazon {
+    font-size: 70px;
+    animation: latido 1.3s infinite;
+}
+
+h1 {
+    font-size: 38px;
+    margin: 15px 0;
+}
+
+h2 {
+    color: #ff9fbd;
+    font-weight: normal;
+}
+
+.mensaje {
+    font-size: 19px;
+    line-height: 1.8;
+    color: #f8dce5;
+    text-align: left;
+}
+
+.firma {
+    margin-top: 30px;
+    font-size: 22px;
+    color: #ff9fbd;
+}
+
+button {
+    margin-top: 25px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #ff3975;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255,0,80,0.4);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#sorpresa {
+    display: none;
+    margin-top: 25px;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #ffd6e2;
+}
+
+.corazon-flotante {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    animation: subir 6s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="corazon">❤️</div>
+
+    <h1>Para ti</h1>
+
+    <h2>La mujer que sigue siendo especial para mí</h2>
+
+    <div class="mensaje">
+        <p>
+        En esta hermosa noche paso por aquí para recordarte
+        lo maravillosa que eres y lo espectacularmente bella
+        que siempre has sido.
+        </p>
+
+        <p>
+        Hay personas que llegan a nuestra vida y simplemente
+        pasan, pero tú dejaste una huella que el tiempo no ha
+        podido borrar.
+        </p>
+
+        <p>
+        Quizás la vida nos llevó por caminos diferentes,
+        pero eso no cambia todo lo bonito que alguna vez
+        sentí por ti.
+        </p>
+
+        <p>
+        Cuando miro las estrellas pienso que algunas personas
+        son como ellas: aunque estén lejos, siguen teniendo
+        la capacidad de iluminar nuestros pensamientos.
+        </p>
+
+        <p>
+        Y tú eres una de esas personas para mí.
+        </p>
+
+        <p>
+        No hice esta página para pedirte nada.
+        Solo quería regalarte unas palabras y recordarte
+        que, en algún lugar de este mundo, existe alguien
+        que todavía piensa en lo hermosa y especial que eres.
+        </p>
+    </div>
+
+    <div class="firma">
+        Con cariño ❤️
+    </div>
+
+    <button onclick="mostrarSorpresa()">
+        Tengo algo más que decirte 💌
+    </button>
+
+    <div id="sorpresa">
+        <p>
+        Si pudiera volver a un momento de nuestra historia,
+        elegiría uno de esos instantes en los que simplemente
+        éramos felices sin preocuparnos por lo que vendría.
+        </p>
+
+        <p>
+        Porque algunas historias terminan, pero ciertos
+        sentimientos nunca desaparecen completamente.
+        </p>
+
+        <p>
+        Gracias por haber sido una parte tan bonita de mi vida.
+        ❤️
+        </p>
+    </div>
+
+</div>
+
+<script>
+
+function mostrarSorpresa() {
+    document.getElementById("sorpresa").style.display = "block";
+}
+
+function crearCorazon() {
+
+    const corazon = document.createElement("div");
+
+    corazon.className = "corazon-flotante";
+
+    const corazones = ["❤️","💕","💖","💗","💘","💝"];
+
+    corazon.innerHTML =
+        corazones[Math.floor(Math.random() * corazones.length)];
+
+    corazon.style.left = Math.random() * 100 + "vw";
+
+    corazon.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 8000);
+}
+
+setInterval(crearCorazon, 700);
+
+</script>
+
+</body>
+</html>
