@@ -3,114 +3,234 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para ti ❤️</title>
+<title>Para Sofía ❤️</title>
 
 <style>
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
     min-height: 100vh;
+    overflow-x: hidden;
     font-family: Georgia, serif;
-    background: linear-gradient(135deg, #120008, #3b0018, #16000c);
     color: white;
+    background:
+        radial-gradient(circle at 20% 20%, #650025 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, #41001c 0%, transparent 30%),
+        linear-gradient(135deg, #050008, #19000d, #070008);
+}
+
+/* ESTRELLAS */
+.estrella {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    animation: brillar 2s infinite alternate;
+}
+
+@keyframes brillar {
+    from { opacity: .2; }
+    to { opacity: 1; }
+}
+
+/* PANTALLA INICIAL */
+.inicio {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
-}
-
-.contenedor {
-    width: 90%;
-    max-width: 600px;
     text-align: center;
-    padding: 35px 25px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 25px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 40px rgba(255,0,80,0.25);
+    padding: 25px;
+    background:
+        radial-gradient(circle, #360018, #080009 75%);
+    transition: 1s;
 }
 
-.corazon {
-    font-size: 70px;
-    animation: latido 1.3s infinite;
-}
-
-h1 {
-    font-size: 38px;
-    margin: 15px 0;
-}
-
-h2 {
-    color: #ff9fbd;
-    font-weight: normal;
-}
-
-.mensaje {
-    font-size: 19px;
-    line-height: 1.8;
-    color: #f8dce5;
-    text-align: left;
-}
-
-.firma {
-    margin-top: 30px;
-    font-size: 22px;
-    color: #ff9fbd;
-}
-
-button {
-    margin-top: 25px;
-    padding: 14px 25px;
-    border: none;
-    border-radius: 30px;
-    background: #ff3975;
-    color: white;
-    font-size: 17px;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(255,0,80,0.4);
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-#sorpresa {
-    display: none;
-    margin-top: 25px;
-    font-size: 19px;
-    line-height: 1.7;
-    color: #ffd6e2;
-}
-
-.corazon-flotante {
-    position: fixed;
-    bottom: -30px;
-    font-size: 20px;
-    animation: subir 6s linear forwards;
+.inicio.oculto {
+    opacity: 0;
     pointer-events: none;
 }
 
-@keyframes latido {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
+.inicio-contenido {
+    animation: aparecer 2s ease;
+}
+
+.corazon-grande {
+    font-size: 90px;
+    animation: latir 1.3s infinite;
+}
+
+.inicio h1 {
+    font-size: 42px;
+    margin: 20px 0 10px;
+}
+
+.inicio p {
+    color: #ffc5d8;
+    font-size: 20px;
+}
+
+.boton {
+    margin-top: 35px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #ff2165, #ff5b91);
+    color: white;
+    font-size: 18px;
+    box-shadow: 0 0 30px rgba(255, 35, 105, .5);
+    cursor: pointer;
+}
+
+/* CARTA */
+.contenedor {
+    width: 92%;
+    max-width: 650px;
+    margin: auto;
+    padding: 70px 0;
+}
+
+.carta {
+    padding: 35px 25px;
+    text-align: center;
+    border-radius: 30px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.15);
+    box-shadow: 0 0 50px rgba(255,0,80,.18);
+    backdrop-filter: blur(12px);
+    animation: aparecer 2s ease;
+}
+
+.carta h1 {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: #ff9fbd;
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+.linea {
+    width: 80px;
+    height: 2px;
+    background: #ff4d83;
+    margin: 20px auto 30px;
+}
+
+.texto {
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #f7dce5;
+}
+
+.texto p {
+    margin-bottom: 22px;
+}
+
+.frase {
+    margin: 35px 0;
+    padding: 25px;
+    border-left: 3px solid #ff477d;
+    border-right: 3px solid #ff477d;
+    color: #ffd0df;
+    font-size: 21px;
+    font-style: italic;
+    text-align: center;
+}
+
+.firma {
+    margin-top: 35px;
+    font-size: 23px;
+    color: #ff9fbd;
+}
+
+.sorpresa {
+    display: none;
+    margin-top: 30px;
+    animation: aparecer 1.5s ease;
+}
+
+.sorpresa p {
+    color: #ffd7e3;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.boton2 {
+    margin-top: 30px;
+    padding: 13px 25px;
+    border: 1px solid #ff5688;
+    border-radius: 30px;
+    background: transparent;
+    color: #ffb4ca;
+    font-size: 16px;
+}
+
+/* CORAZONES */
+.corazon {
+    position: fixed;
+    bottom: -40px;
+    z-index: 2;
+    pointer-events: none;
+    animation: subir linear forwards;
 }
 
 @keyframes subir {
     0% {
-        transform: translateY(0);
+        transform: translateY(0) scale(.7);
+        opacity: 0;
+    }
+    15% {
         opacity: 1;
     }
     100% {
-        transform: translateY(-110vh);
+        transform: translateY(-110vh) scale(1.4);
         opacity: 0;
+    }
+}
+
+@keyframes latir {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MÓVIL */
+@media(max-width:500px) {
+    .inicio h1 {
+        font-size: 34px;
+    }
+
+    .corazon-grande {
+        font-size: 75px;
+    }
+
+    .carta h1 {
+        font-size: 34px;
+    }
+
+    .texto {
+        font-size: 17px;
     }
 }
 </style>
@@ -118,80 +238,164 @@ button:active {
 
 <body>
 
-<div class="contenedor">
+<!-- ESTRELLAS -->
+<script>
+for(let i = 0; i < 100; i++) {
+    const estrella = document.createElement("div");
+    estrella.className = "estrella";
 
-    <div class="corazon">❤️</div>
+    estrella.style.left = Math.random() * 100 + "vw";
+    estrella.style.top = Math.random() * 100 + "vh";
 
-    <h1>Para ti</h1>
+    const tamaño = Math.random() * 3 + 1;
+    estrella.style.width = tamaño + "px";
+    estrella.style.height = tamaño + "px";
 
-    <h2>La mujer que sigue siendo especial para mí</h2>
+    estrella.style.animationDelay = Math.random() * 3 + "s";
 
-    <div class="mensaje">
-        <p>
-        En esta hermosa noche paso por aquí para recordarte
-        lo maravillosa que eres y lo espectacularmente bella
-        que siempre has sido.
-        </p>
+    document.body.appendChild(estrella);
+}
+</script>
 
-        <p>
-        Hay personas que llegan a nuestra vida y simplemente
-        pasan, pero tú dejaste una huella que el tiempo no ha
-        podido borrar.
-        </p>
+<!-- PANTALLA INICIAL -->
+<section class="inicio" id="inicio">
 
-        <p>
-        Quizás la vida nos llevó por caminos diferentes,
-        pero eso no cambia todo lo bonito que alguna vez
-        sentí por ti.
-        </p>
+    <div class="inicio-contenido">
 
-        <p>
-        Cuando miro las estrellas pienso que algunas personas
-        son como ellas: aunque estén lejos, siguen teniendo
-        la capacidad de iluminar nuestros pensamientos.
-        </p>
+        <div class="corazon-grande">❤️</div>
 
-        <p>
-        Y tú eres una de esas personas para mí.
-        </p>
+        <h1>Para Sofía Escobar</h1>
 
-        <p>
-        No hice esta página para pedirte nada.
-        Solo quería regalarte unas palabras y recordarte
-        que, en algún lugar de este mundo, existe alguien
-        que todavía piensa en lo hermosa y especial que eres.
-        </p>
+        <p>Hay algo que quiero decirte...</p>
+
+        <button class="boton" onclick="abrirCarta()">
+            Abrir mi corazón 💌
+        </button>
+
     </div>
 
-    <div class="firma">
-        Con cariño ❤️
+</section>
+
+
+<!-- CARTA -->
+<main class="contenedor">
+
+    <div class="carta">
+
+        <h1>Sofía ❤️</h1>
+
+        <div class="subtitulo">
+            Una pequeña carta para una persona muy especial
+        </div>
+
+        <div class="linea"></div>
+
+        <div class="texto">
+
+            <p>
+                En esta hermosa noche paso por aquí para
+                recordarte lo maravillosa que eres y lo
+                espectacularmente bella que siempre has sido.
+            </p>
+
+            <p>
+                Tal vez no existan palabras suficientes para
+                describir todo lo que significaste y todavía
+                significas para mí, pero quería intentarlo.
+            </p>
+
+            <p>
+                Hay personas que llegan a nuestra vida y
+                simplemente pasan. Y hay otras que dejan una
+                huella tan profunda que ni el tiempo consigue
+                borrarla.
+            </p>
+
+            <p>
+                Tú eres una de esas personas.
+            </p>
+
+            <p>
+                A veces miro el cielo y pienso que las estrellas
+                son como los recuerdos: algunas aparecen por un
+                instante, pero otras permanecen iluminando incluso
+                cuando ya no podemos tenerlas cerca.
+            </p>
+
+        </div>
+
+        <div class="frase">
+            “Si pudiera pedirle un deseo a una estrella,
+            probablemente pediría volver a vivir alguno
+            de los momentos más bonitos que compartimos.”
+        </div>
+
+        <div class="texto">
+
+            <p>
+                No hice esto para pedirte nada. Lo hice porque
+                simplemente quería que supieras que todavía
+                existe alguien que recuerda tu sonrisa, tu forma
+                de ser y todas esas pequeñas cosas que te hacen
+                única.
+            </p>
+
+            <p>
+                Quizás nuestras vidas tomaron caminos diferentes,
+                pero eso no cambia lo bonito que fue coincidir
+                contigo.
+            </p>
+
+            <p>
+                Y aunque el tiempo pase, siempre voy a guardar
+                con cariño aquella parte de mi historia en la que
+                apareciste tú.
+            </p>
+
+        </div>
+
+        <div class="firma">
+            Con cariño,<br>
+            alguien que todavía te recuerda ❤️
+        </div>
+
+        <button class="boton2" onclick="mostrarSorpresa()">
+            Hay algo más... 💗
+        </button>
+
+        <div class="sorpresa" id="sorpresa">
+
+            <p>
+                Sofía, quizás nunca llegues a imaginar lo especial
+                que eres. Pero quería dejarte estas palabras para
+                que, cuando las leas, recuerdes que alguna vez
+                alguien te miró como si fueras una de las cosas
+                más bonitas que le había regalado la vida.
+            </p>
+
+            <p>
+                Y si algún día miras las estrellas y ves una que
+                brilla un poquito más que las demás...
+                quizás sea mi manera de recordarte que siempre
+                habrá un bonito recuerdo de ti en mi corazón. ❤️
+            </p>
+
+            <div class="firma">
+                Para Sofía Escobar 🌹
+            </div>
+
+        </div>
+
     </div>
 
-    <button onclick="mostrarSorpresa()">
-        Tengo algo más que decirte 💌
-    </button>
+</main>
 
-    <div id="sorpresa">
-        <p>
-        Si pudiera volver a un momento de nuestra historia,
-        elegiría uno de esos instantes en los que simplemente
-        éramos felices sin preocuparnos por lo que vendría.
-        </p>
-
-        <p>
-        Porque algunas historias terminan, pero ciertos
-        sentimientos nunca desaparecen completamente.
-        </p>
-
-        <p>
-        Gracias por haber sido una parte tan bonita de mi vida.
-        ❤️
-        </p>
-    </div>
-
-</div>
 
 <script>
+
+function abrirCarta() {
+    document.getElementById("inicio").classList.add("oculto");
+}
 
 function mostrarSorpresa() {
     document.getElementById("sorpresa").style.display = "block";
@@ -199,28 +403,31 @@ function mostrarSorpresa() {
 
 function crearCorazon() {
 
+    const corazones = ["❤️","💕","💗","💖","💘","💝"];
+
     const corazon = document.createElement("div");
 
-    corazon.className = "corazon-flotante";
-
-    const corazones = ["❤️","💕","💖","💗","💘","💝"];
+    corazon.className = "corazon";
 
     corazon.innerHTML =
         corazones[Math.floor(Math.random() * corazones.length)];
 
     corazon.style.left = Math.random() * 100 + "vw";
 
+    corazon.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
     corazon.style.animationDuration =
-        (4 + Math.random() * 4) + "s";
+        (5 + Math.random() * 5) + "s";
 
     document.body.appendChild(corazon);
 
     setTimeout(() => {
         corazon.remove();
-    }, 8000);
+    }, 10000);
 }
 
-setInterval(crearCorazon, 700);
+setInterval(crearCorazon, 650);
 
 </script>
 
