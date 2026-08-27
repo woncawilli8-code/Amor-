@@ -1,490 +1,571 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Para Sofía ❤️</title>
+<title>Para Sofía ❤️</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:Georgia,serif;
+    color:white;
+    text-align:center;
+
+    background:
+    radial-gradient(
+        circle at 20% 20%,
+        rgba(255,80,140,.35),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 80% 80%,
+        rgba(180,40,100,.30),
+        transparent 30%
+    ),
+    linear-gradient(
+        135deg,
+        #05000d,
+        #250018,
+        #08000f
+    );
+}
+
+/* ESTRELLAS */
+
+.estrella{
+    position:fixed;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:0;
+
+    animation:
+    brillar 2s infinite alternate;
+}
+
+@keyframes brillar{
+
+    from{
+        opacity:.2;
+        transform:scale(.7);
     }
 
-    body {
-      min-height: 100vh;
-      overflow-x: hidden;
-      font-family: Georgia, serif;
-      color: white;
-      text-align: center;
-
-      background:
-        radial-gradient(
-          circle at 20% 20%,
-          rgba(255, 80, 140, 0.35),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 80% 80%,
-          rgba(180, 40, 100, 0.30),
-          transparent 30%
-        ),
-        linear-gradient(
-          135deg,
-          #05000d,
-          #210018,
-          #08000f
-        );
+    to{
+        opacity:1;
+        transform:scale(1.5);
     }
 
-    /* ESTRELLAS */
+}
 
-    .estrella {
-      position: fixed;
-      width: 3px;
-      height: 3px;
-      background: white;
-      border-radius: 50%;
-      pointer-events: none;
-      animation: brillar 2s infinite alternate;
-      z-index: 0;
-    }
+/* CONTENEDOR */
 
-    @keyframes brillar {
-      from {
-        opacity: 0.2;
-        transform: scale(0.7);
-      }
+.contenedor{
+    position:relative;
+    z-index:2;
 
-      to {
-        opacity: 1;
-        transform: scale(1.5);
-      }
-    }
+    width:92%;
+    max-width:650px;
 
-    /* CONTENEDOR */
+    margin:auto;
 
-    .contenedor {
-      position: relative;
-      z-index: 2;
-      width: 92%;
-      max-width: 650px;
-      margin: auto;
-      padding: 45px 0 60px;
-    }
+    padding:
+    45px
+    0
+    60px;
+}
 
-    h1 {
-      font-size: 38px;
-      margin-bottom: 15px;
+/* TITULO */
 
-      text-shadow:
-        0 0 15px rgba(255, 100, 160, 0.8);
-    }
+h1{
+    font-size:40px;
+    margin-bottom:15px;
 
-    .subtitulo {
-      font-size: 20px;
-      line-height: 1.7;
-      margin-bottom: 30px;
-      color: #ffe6ef;
-    }
+    text-shadow:
+    0 0 20px
+    rgba(255,80,140,.8);
+}
 
-    /* FOTO */
+.subtitulo{
+    font-size:20px;
+    line-height:1.7;
 
-    .foto {
-      display: block;
-      width: 100%;
-      max-width: 500px;
-      margin: 25px auto;
+    margin-bottom:30px;
 
-      border-radius: 22px;
+    color:#ffe5ef;
+}
 
-      border: 3px solid rgba(255,255,255,0.7);
+/* FOTO */
 
-      box-shadow:
-        0 0 25px rgba(255, 80, 150, 0.5),
-        0 15px 40px rgba(0,0,0,0.5);
-    }
+.foto{
+    display:block;
 
-    /* MENSAJE */
+    width:100%;
+    max-width:500px;
 
-    .mensaje {
-      margin-top: 30px;
-      padding: 25px;
+    margin:
+    25px auto;
 
-      border-radius: 20px;
+    border-radius:22px;
 
-      background: rgba(255,255,255,0.08);
+    border:
+    3px solid
+    rgba(255,255,255,.8);
 
-      border:
-        1px solid rgba(255,255,255,0.18);
+    box-shadow:
+    0 0 30px
+    rgba(255,60,130,.55),
 
-      backdrop-filter: blur(8px);
+    0 15px 40px
+    rgba(0,0,0,.5);
+}
 
-      font-size: 18px;
-      line-height: 1.9;
-    }
+/* MENSAJE */
 
-    .mensaje p {
-      margin-bottom: 20px;
-    }
+.mensaje{
 
-    strong {
-      color: #ffb6d2;
-    }
+    margin-top:30px;
 
-    /* BOTÓN DE MÚSICA */
+    padding:28px 23px;
 
-    .boton {
-      margin-top: 28px;
+    border-radius:22px;
 
-      padding: 15px 28px;
+    background:
+    rgba(255,255,255,.08);
 
-      border: none;
-      border-radius: 35px;
+    border:
+    1px solid
+    rgba(255,255,255,.18);
 
-      background:
-        linear-gradient(
-          135deg,
-          #ff2f70,
-          #ff6798
-        );
+    backdrop-filter:
+    blur(8px);
 
-      color: white;
+    font-size:18px;
 
-      font-size: 18px;
-      font-family: Georgia, serif;
+    line-height:1.9;
 
-      cursor: pointer;
+    text-align:left;
+}
 
-      box-shadow:
-        0 0 25px rgba(255,71,126,0.6);
+.mensaje p{
+    margin-bottom:20px;
+}
 
-      transition: transform 0.2s;
-    }
+strong{
+    color:#ffb6d2;
+}
 
-    .boton:active {
-      transform: scale(0.95);
-    }
+/* BOTON */
 
-    /* CORAZONES */
+.boton{
 
-    .corazon {
-      position: fixed;
-      bottom: -40px;
+    margin-top:30px;
 
-      font-size: 25px;
+    padding:
+    15px
+    28px;
 
-      animation:
-        subir 6s linear forwards;
+    border:none;
 
-      pointer-events: none;
+    border-radius:40px;
 
-      z-index: 1;
-    }
+    background:
+    linear-gradient(
+        135deg,
+        #ff286c,
+        #ff6798
+    );
 
-    @keyframes subir {
+    color:white;
 
-      0% {
+    font-size:18px;
+
+    font-family:Georgia,serif;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 25px
+    rgba(255,50,120,.7);
+
+    transition:
+    transform .2s;
+}
+
+.boton:active{
+    transform:scale(.94);
+}
+
+/* REPRODUCTOR */
+
+.reproductor{
+    margin-top:20px;
+
+    width:100%;
+
+    display:none;
+}
+
+/* CORAZONES */
+
+.corazon{
+
+    position:fixed;
+
+    bottom:-50px;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    animation:
+    subir linear forwards;
+}
+
+@keyframes subir{
+
+    0%{
         transform:
-          translateY(0)
-          scale(0.8);
+        translateY(0)
+        scale(.7);
 
-        opacity: 0;
-      }
+        opacity:0;
+    }
 
-      15% {
-        opacity: 1;
-      }
+    15%{
+        opacity:1;
+    }
 
-      100% {
+    100%{
         transform:
-          translateY(-110vh)
-          scale(1.5);
+        translateY(-110vh)
+        scale(1.4);
 
-        opacity: 0;
-      }
+        opacity:0;
     }
 
-    /* FINAL */
+}
 
-    .final {
-      margin-top: 40px;
+/* FINAL */
 
-      font-size: 25px;
+.final{
 
-      font-style: italic;
+    margin-top:40px;
 
-      line-height: 1.8;
+    font-size:25px;
 
-      text-shadow:
-        0 0 12px rgba(255,100,160,0.7);
+    line-height:1.8;
+
+    font-style:italic;
+
+    text-shadow:
+    0 0 15px
+    rgba(255,80,140,.8);
+}
+
+.musicaTexto{
+
+    margin-top:18px;
+
+    font-size:14px;
+
+    color:#ffd8e5;
+
+    opacity:.7;
+}
+
+/* CELULAR */
+
+@media(max-width:500px){
+
+    h1{
+        font-size:34px;
     }
 
-    .musica-texto {
-      margin-top: 18px;
-
-      font-size: 14px;
-
-      color: #ffd8e4;
-
-      opacity: 0.7;
+    .subtitulo{
+        font-size:18px;
     }
 
-    /* CELULAR */
-
-    @media (max-width: 500px) {
-
-      h1 {
-        font-size: 34px;
-      }
-
-      .subtitulo {
-        font-size: 18px;
-      }
-
-      .mensaje {
-        font-size: 17px;
-      }
-
-      .final {
-        font-size: 22px;
-      }
+    .mensaje{
+        font-size:17px;
     }
 
-  </style>
+    .final{
+        font-size:22px;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- CONTENIDO -->
+<div class="contenedor">
 
-  <div class="contenedor">
 
-    <h1>
-      Para Sofía Escobar ❤️
-    </h1>
+<h1>
+Para Sofía Escobar ❤️
+</h1>
 
 
-    <p class="subtitulo">
+<p class="subtitulo">
 
-      Hay personas que llegan a nuestra vida
-      y hacen que todo se sienta diferente...
+Hay personas que llegan a nuestra vida
+y hacen que todo se sienta diferente...
 
-    </p>
+</p>
 
 
-    <!-- FOTO -->
+<!-- FOTO -->
 
-    <img
-      src="IMG-20241225-WA0029.jpg"
-      class="foto"
-      alt="Nuestra foto ❤️"
-    >
+<img
+src="IMG-20241225-WA0029.jpg"
+class="foto"
+alt="Nuestra foto ❤️"
+>
 
 
-    <!-- MENSAJE -->
+<!-- MENSAJE -->
 
-    <div class="mensaje">
+<div class="mensaje">
 
-      <p>
-        Quiero que sepas algo que quizás no te digo
-        todas las veces que debería:
-        <strong>te amo muchísimo.</strong> ❤️
-      </p>
 
+<p>
 
-      <p>
+Quiero que sepas algo que quizás no te digo
+todas las veces que debería:
 
-        Y no hablo solamente de un “te amo” de esos
-        que se dicen por decir; hablo de un sentimiento
-        que llevo dentro y que siento cada vez que
-        pienso en ti.
+<strong>
+te amo muchísimo.
+</strong>
 
-      </p>
+❤️
 
+</p>
 
-      <p>
 
-        Cuando estoy contigo me siento diferente.
-        Es como si por un momento todo lo demás
-        dejara de importar y solamente existiéramos
-        tú y yo.
+<p>
 
-      </p>
+Y no hablo solamente de un “te amo”
+de esos que se dicen por decir;
 
+hablo de un sentimiento que llevo dentro
+y que siento cada vez que pienso en ti.
 
-      <p>
+</p>
 
-        Contigo siento una tranquilidad que no sé
-        explicar, una felicidad diferente, de esas
-        que simplemente se sienten y no necesitan
-        palabras.
 
-      </p>
+<p>
 
+Cuando estoy contigo me siento diferente.
 
-      <p>
+Es como si por un momento todo lo demás
+dejara de importar y solamente
+existiéramos tú y yo.
 
-        Me encanta estar a tu lado, mirarte,
-        escuchar tu voz, compartir cualquier momento
-        contigo, incluso los momentos más sencillos.
+</p>
 
-      </p>
 
+<p>
 
-      <p>
+Contigo siento una tranquilidad
+que no sé explicar,
 
-        Porque cuando estoy contigo,
-        hasta lo más pequeño puede convertirse
-        en algo especial.
+una felicidad diferente,
+de esas que simplemente se sienten
+y no necesitan palabras.
 
-      </p>
+</p>
 
 
-      <p>
+<p>
 
-        <strong>
-          Tú haces que me sienta diferente.
-        </strong>
+Me encanta estar a tu lado,
+mirarte, escuchar tu voz,
+compartir cualquier momento contigo,
 
-        Haces que mi corazón vaya más rápido,
-        pero al mismo tiempo me das una paz que
-        pocas personas pueden darme.
+incluso los momentos más sencillos.
 
-      </p>
+</p>
 
 
-      <p>
+<p>
 
-        Te amo por tu forma de ser,
-        por tu manera de sonreír,
-        por esos pequeños detalles que quizás
-        tú ni siquiera notas, pero que para mí
-        significan muchísimo.
+Porque cuando estoy contigo,
+hasta lo más pequeño
+puede convertirse en algo especial.
 
-      </p>
+</p>
 
 
-      <p>
+<p>
 
-        Te amo por lo que eres y por cómo me haces
-        sentir cuando estoy cerca de ti.
+<strong>
+Tú haces que me sienta diferente.
+</strong>
 
-      </p>
+Haces que mi corazón vaya más rápido,
+pero al mismo tiempo me das una paz
+que pocas personas pueden darme.
 
+</p>
 
-      <p>
 
-        Y si alguna vez dudas de lo que siento
-        por ti, quiero que recuerdes esto:
+<p>
 
-      </p>
+Te amo por tu forma de ser,
+por tu manera de sonreír,
 
+por esos pequeños detalles que quizás
+tú ni siquiera notas,
+pero que para mí significan muchísimo.
 
-      <p>
+</p>
 
-        <strong>
 
-          No necesito estar lejos de ti para saber
-          cuánto te amo; muchas veces solamente
-          necesito tenerte cerca para sentir
-          que todo está bien.
+<p>
 
-        </strong>
+Te amo por lo que eres
+y por cómo me haces sentir
+cuando estoy cerca de ti.
 
-      </p>
+</p>
 
-    </div>
 
+<p>
 
-    <!-- BOTÓN MÚSICA -->
+Y si alguna vez dudas
+de lo que siento por ti,
 
-    <button
-      class="boton"
-      onclick="reproducirMusica()"
-    >
+quiero que recuerdes esto:
 
-      🎵 Tocar nuestra canción
+</p>
 
-    </button>
 
+<p>
 
-    <audio
-      id="musica"
-      preload="auto"
-    >
+<strong>
 
-      <source
-        src="Neton Vega - Todo A Su Tiempo (Liryc Video)(MP3_160K).mp3"
-        type="audio/mpeg"
-      >
+No necesito estar lejos de ti
+para saber cuánto te amo;
 
-    </audio>
+muchas veces solamente necesito
+tenerte cerca para sentir
+que todo está bien.
 
+</strong>
 
-    <p class="musica-texto">
+</p>
 
-      🎵 Todo a su tiempo ❤️
 
-    </p>
+</div>
 
 
-    <!-- FINAL -->
+<!-- BOTON DE MUSICA -->
 
-    <div class="final">
+<button
+class="boton"
+onclick="reproducirMusica()">
 
-      Te amo, Sofía. ❤️
+🎵 Tocar nuestra canción
 
-      <br>
+</button>
 
-      Más de lo que estas palabras
-      pueden explicar.
 
-    </div>
+<!-- MUSICA -->
 
-  </div>
+<audio
+id="musica"
+class="reproductor"
+preload="auto"
+controls>
 
+<source
+src="Neton Vega - Todo A Su Tiempo (Liryc Video)(MP3_160K).mp3"
+type="audio/mpeg">
 
-  <!-- JAVASCRIPT -->
+Tu navegador no puede reproducir
+este audio.
 
-  <script>
+</audio>
 
 
-    /* CREAR ESTRELLAS */
+<p class="musicaTexto">
 
-    for (let i = 0; i < 80; i++) {
+🎵 Todo a su tiempo ❤️
 
-      const estrella =
-        document.createElement("div");
+</p>
 
-      estrella.className =
-        "estrella";
 
-      estrella.style.left =
-        Math.random() * 100 + "vw";
+<!-- FINAL -->
 
-      estrella.style.top =
-        Math.random() * 100 + "vh";
+<div class="final">
 
-      estrella.style.animationDelay =
-        Math.random() * 3 + "s";
+Te amo, Sofía. ❤️
 
-      document.body.appendChild(
+<br>
+
+Más de lo que estas palabras
+pueden explicar.
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* ESTRELLAS */
+
+for(
+    let i = 0;
+    i < 80;
+    i++
+){
+
+    const estrella =
+    document.createElement("div");
+
+    estrella.className =
+    "estrella";
+
+    estrella.style.left =
+    Math.random()*100+"vw";
+
+    estrella.style.top =
+    Math.random()*100+"vh";
+
+    estrella.style.animationDelay =
+    Math.random()*3+"s";
+
+    document.body.appendChild(
         estrella
-      );
+    );
 
-    }
+}
 
 
-    /* CREAR CORAZONES */
+/* CORAZONES */
 
-    function crearCorazon() {
+function crearCorazon(){
 
-      const corazones = [
+    const corazones = [
         "❤️",
         "💕",
         "💗",
@@ -492,21 +573,81 @@
         "💘",
         "💝",
         "💓"
-      ];
+    ];
 
-      const corazon =
-        document.createElement("div");
+    const corazon =
+    document.createElement("div");
 
-      corazon.className =
-        "corazon";
+    corazon.className =
+    "corazon";
 
-      corazon.innerHTML =
-        corazones[
-          Math.floor(
+    corazon.innerHTML =
+    corazones[
+        Math.floor(
             Math.random() *
             corazones.length
-          )
-        ];
+        )
+    ];
 
-      corazon.style.left =
-        Math
+    corazon.style.left =
+    Math.random()*100+"vw";
+
+    corazon.style.fontSize =
+    (18 + Math.random()*25)+"px";
+
+    corazon.style.animationDuration =
+    (4 + Math.random()*4)+"s";
+
+    document.body.appendChild(
+        corazon
+    );
+
+    setTimeout(
+        ()=>{
+            corazon.remove();
+        },
+        8000
+    );
+
+}
+
+setInterval(
+    crearCorazon,
+    650
+);
+
+
+/* MUSICA */
+
+function reproducirMusica(){
+
+    const musica =
+    document.getElementById(
+        "musica"
+    );
+
+    musica.style.display =
+    "block";
+
+    musica.volume = 1;
+
+    musica.play()
+    .catch(
+        error => {
+
+            console.log(
+                "Error al reproducir:",
+                error
+            );
+
+        }
+    );
+
+}
+
+
+</script>
+
+
+</body>
+</html>
