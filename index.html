@@ -21,12 +21,26 @@
       text-align: center;
 
       background:
-        radial-gradient(circle at 20% 20%, rgba(255, 80, 140, 0.35), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(180, 40, 100, 0.30), transparent 30%),
-        linear-gradient(135deg, #05000d, #210018, #08000f);
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(255, 80, 140, 0.35),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(180, 40, 100, 0.30),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #05000d,
+          #210018,
+          #08000f
+        );
     }
 
     /* ESTRELLAS */
+
     .estrella {
       position: fixed;
       width: 3px;
@@ -50,6 +64,8 @@
       }
     }
 
+    /* CONTENEDOR */
+
     .contenedor {
       position: relative;
       z-index: 2;
@@ -62,7 +78,9 @@
     h1 {
       font-size: 38px;
       margin-bottom: 15px;
-      text-shadow: 0 0 15px rgba(255, 100, 160, 0.8);
+
+      text-shadow:
+        0 0 15px rgba(255, 100, 160, 0.8);
     }
 
     .subtitulo {
@@ -73,25 +91,35 @@
     }
 
     /* FOTO */
+
     .foto {
       display: block;
       width: 100%;
       max-width: 500px;
       margin: 25px auto;
+
       border-radius: 22px;
+
       border: 3px solid rgba(255,255,255,0.7);
+
       box-shadow:
         0 0 25px rgba(255, 80, 150, 0.5),
         0 15px 40px rgba(0,0,0,0.5);
     }
 
+    /* MENSAJE */
+
     .mensaje {
       margin-top: 30px;
       padding: 25px;
+
       border-radius: 20px;
 
       background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
+
+      border:
+        1px solid rgba(255,255,255,0.18);
+
       backdrop-filter: blur(8px);
 
       font-size: 18px;
@@ -106,18 +134,63 @@
       color: #ffb6d2;
     }
 
+    /* BOTÓN DE MÚSICA */
+
+    .boton {
+      margin-top: 28px;
+
+      padding: 15px 28px;
+
+      border: none;
+      border-radius: 35px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ff2f70,
+          #ff6798
+        );
+
+      color: white;
+
+      font-size: 18px;
+      font-family: Georgia, serif;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 0 25px rgba(255,71,126,0.6);
+
+      transition: transform 0.2s;
+    }
+
+    .boton:active {
+      transform: scale(0.95);
+    }
+
+    /* CORAZONES */
+
     .corazon {
       position: fixed;
-      bottom: -30px;
+      bottom: -40px;
+
       font-size: 25px;
-      animation: subir 6s linear forwards;
+
+      animation:
+        subir 6s linear forwards;
+
       pointer-events: none;
+
       z-index: 1;
     }
 
     @keyframes subir {
+
       0% {
-        transform: translateY(0) scale(0.8);
+        transform:
+          translateY(0)
+          scale(0.8);
+
         opacity: 0;
       }
 
@@ -126,206 +199,314 @@
       }
 
       100% {
-        transform: translateY(-110vh) scale(1.5);
+        transform:
+          translateY(-110vh)
+          scale(1.5);
+
         opacity: 0;
       }
     }
 
+    /* FINAL */
+
     .final {
       margin-top: 40px;
+
       font-size: 25px;
+
       font-style: italic;
+
       line-height: 1.8;
-      text-shadow: 0 0 12px rgba(255,100,160,0.7);
+
+      text-shadow:
+        0 0 12px rgba(255,100,160,0.7);
     }
 
-    .aviso-musica {
-      margin-top: 20px;
-      font-size: 13px;
-      opacity: 0.65;
+    .musica-texto {
+      margin-top: 18px;
+
+      font-size: 14px;
+
+      color: #ffd8e4;
+
+      opacity: 0.7;
     }
+
+    /* CELULAR */
+
+    @media (max-width: 500px) {
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .subtitulo {
+        font-size: 18px;
+      }
+
+      .mensaje {
+        font-size: 17px;
+      }
+
+      .final {
+        font-size: 22px;
+      }
+    }
+
   </style>
 </head>
 
+
 <body>
+
+
+  <!-- CONTENIDO -->
 
   <div class="contenedor">
 
-    <h1>Para Sofía ❤️</h1>
+    <h1>
+      Para Sofía Escobar ❤️
+    </h1>
+
 
     <p class="subtitulo">
+
       Hay personas que llegan a nuestra vida
       y hacen que todo se sienta diferente...
+
     </p>
 
+
     <!-- FOTO -->
+
     <img
       src="IMG-20241225-WA0029.jpg"
       class="foto"
-      alt="Un recuerdo especial"
+      alt="Nuestra foto ❤️"
     >
+
+
+    <!-- MENSAJE -->
 
     <div class="mensaje">
 
       <p>
-        Sofía, quiero que sepas algo que quizás muchas veces
-        no he sabido explicar con palabras...
+        Quiero que sepas algo que quizás no te digo
+        todas las veces que debería:
+        <strong>te amo muchísimo.</strong> ❤️
       </p>
 
-      <p>
-        Entre tantas personas, tantos lugares y tantos caminos,
-        <strong>mi corazón siempre encuentra una razón para recordarte.</strong>
-      </p>
 
       <p>
-        Hay recuerdos que simplemente no desaparecen.
-        Momentos que se quedan guardados en el corazón,
-        y tú eres uno de esos recuerdos que siempre tendrán
-        un lugar especial en mí. ❤️
+
+        Y no hablo solamente de un “te amo” de esos
+        que se dicen por decir; hablo de un sentimiento
+        que llevo dentro y que siento cada vez que
+        pienso en ti.
+
       </p>
 
-      <p>
-        Tal vez el tiempo pase y muchas cosas cambien,
-        pero eso no cambia lo importante que has sido para mí.
-      </p>
 
       <p>
-        Solo quería que al ver esta página recordaras
-        que alguna vez hubo alguien que te quiso muchísimo
-        y que todavía guarda con cariño cada recuerdo bonito.
+
+        Cuando estoy contigo me siento diferente.
+        Es como si por un momento todo lo demás
+        dejara de importar y solamente existiéramos
+        tú y yo.
+
       </p>
 
+
       <p>
-        <strong>Te amo muchísimo. ❤️</strong>
+
+        Contigo siento una tranquilidad que no sé
+        explicar, una felicidad diferente, de esas
+        que simplemente se sienten y no necesitan
+        palabras.
+
+      </p>
+
+
+      <p>
+
+        Me encanta estar a tu lado, mirarte,
+        escuchar tu voz, compartir cualquier momento
+        contigo, incluso los momentos más sencillos.
+
+      </p>
+
+
+      <p>
+
+        Porque cuando estoy contigo,
+        hasta lo más pequeño puede convertirse
+        en algo especial.
+
+      </p>
+
+
+      <p>
+
+        <strong>
+          Tú haces que me sienta diferente.
+        </strong>
+
+        Haces que mi corazón vaya más rápido,
+        pero al mismo tiempo me das una paz que
+        pocas personas pueden darme.
+
+      </p>
+
+
+      <p>
+
+        Te amo por tu forma de ser,
+        por tu manera de sonreír,
+        por esos pequeños detalles que quizás
+        tú ni siquiera notas, pero que para mí
+        significan muchísimo.
+
+      </p>
+
+
+      <p>
+
+        Te amo por lo que eres y por cómo me haces
+        sentir cuando estoy cerca de ti.
+
+      </p>
+
+
+      <p>
+
+        Y si alguna vez dudas de lo que siento
+        por ti, quiero que recuerdes esto:
+
+      </p>
+
+
+      <p>
+
+        <strong>
+
+          No necesito estar lejos de ti para saber
+          cuánto te amo; muchas veces solamente
+          necesito tenerte cerca para sentir
+          que todo está bien.
+
+        </strong>
+
       </p>
 
     </div>
 
-    <p class="final">
-      Te amo, Sofía. ❤️<br>
-      Más de lo que estas palabras pueden explicar.
+
+    <!-- BOTÓN MÚSICA -->
+
+    <button
+      class="boton"
+      onclick="reproducirMusica()"
+    >
+
+      🎵 Tocar nuestra canción
+
+    </button>
+
+
+    <audio
+      id="musica"
+      preload="auto"
+    >
+
+      <source
+        src="Neton Vega - Todo A Su Tiempo (Liryc Video)(MP3_160K).mp3"
+        type="audio/mpeg"
+      >
+
+    </audio>
+
+
+    <p class="musica-texto">
+
+      🎵 Todo a su tiempo ❤️
+
     </p>
 
-    <p class="aviso-musica">
-      🎵 Nuestra canción...
-    </p>
+
+    <!-- FINAL -->
+
+    <div class="final">
+
+      Te amo, Sofía. ❤️
+
+      <br>
+
+      Más de lo que estas palabras
+      pueden explicar.
+
+    </div>
 
   </div>
 
 
-  <!-- MÚSICA -->
-  <audio
-    id="musica"
-    autoplay
-    playsinline
-    preload="auto"
-  >
-    <source
-      src="Neton Vega - Todo A Su Tiempo (Liryc Video)(MP3_160K).mp3"
-      type="audio/mpeg"
-    >
-  </audio>
-
+  <!-- JAVASCRIPT -->
 
   <script>
 
+
     /* CREAR ESTRELLAS */
-    for (let i = 0; i < 70; i++) {
 
-      const estrella = document.createElement("div");
+    for (let i = 0; i < 80; i++) {
 
-      estrella.className = "estrella";
+      const estrella =
+        document.createElement("div");
 
-      estrella.style.left = Math.random() * 100 + "vw";
-      estrella.style.top = Math.random() * 100 + "vh";
+      estrella.className =
+        "estrella";
+
+      estrella.style.left =
+        Math.random() * 100 + "vw";
+
+      estrella.style.top =
+        Math.random() * 100 + "vh";
 
       estrella.style.animationDelay =
         Math.random() * 3 + "s";
 
-      estrella.style.opacity =
-        Math.random();
+      document.body.appendChild(
+        estrella
+      );
 
-      document.body.appendChild(estrella);
     }
 
 
-    /* CORAZONES FLOTANDO */
+    /* CREAR CORAZONES */
+
     function crearCorazon() {
 
-      const corazon = document.createElement("div");
+      const corazones = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘",
+        "💝",
+        "💓"
+      ];
 
-      corazon.className = "corazon";
+      const corazon =
+        document.createElement("div");
 
-      corazon.innerHTML = "❤️";
+      corazon.className =
+        "corazon";
+
+      corazon.innerHTML =
+        corazones[
+          Math.floor(
+            Math.random() *
+            corazones.length
+          )
+        ];
 
       corazon.style.left =
-        Math.random() * 100 + "vw";
-
-      corazon.style.animationDuration =
-        (4 + Math.random() * 4) + "s";
-
-      document.body.appendChild(corazon);
-
-      setTimeout(() => {
-        corazon.remove();
-      }, 8000);
-    }
-
-    setInterval(crearCorazon, 900);
-
-
-    /* MÚSICA */
-    const musica = document.getElementById("musica");
-
-    musica.volume = 1;
-
-
-    /*
-      Intentar reproducir automáticamente
-      cuando se abre la página.
-    */
-    window.addEventListener("load", () => {
-
-      musica.play().catch(() => {
-        console.log(
-          "El navegador bloqueó el autoplay."
-        );
-      });
-
-    });
-
-
-    /*
-      Si el navegador bloquea el autoplay,
-      el primer toque en la pantalla
-      comenzará la canción.
-    */
-    function iniciarMusica() {
-
-      musica.play().catch(() => {});
-
-      document.removeEventListener(
-        "click",
-        iniciarMusica
-      );
-
-      document.removeEventListener(
-        "touchstart",
-        iniciarMusica
-      );
-    }
-
-    document.addEventListener(
-      "click",
-      iniciarMusica
-    );
-
-    document.addEventListener(
-      "touchstart",
-      iniciarMusica
-    );
-
-  </script>
-
-</body>
-</html>
+        Math
